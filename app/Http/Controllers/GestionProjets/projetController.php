@@ -5,7 +5,7 @@ namespace App\Http\Controllers\GestionProjets;
 use App\Exceptions\GestionProjets\ProjectAlreadyExistException;
 use App\Http\Controllers\Controller;
 use App\Imports\GestionProjets\ProjetImport;
-use App\Models\GestionProjets\projet;
+use App\Models\GestionProjets\Projet;
 use Illuminate\Http\Request;
 use App\Http\Requests\GestionProjets\projetRequest;
 use App\Repositories\GestionProjets\ProjetRepository;

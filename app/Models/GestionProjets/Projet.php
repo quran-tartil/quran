@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\GestionProjets\Task;
 
-class projet extends Model
+class Projet extends Model
 {
     use HasFactory;
     protected $fillable = [
