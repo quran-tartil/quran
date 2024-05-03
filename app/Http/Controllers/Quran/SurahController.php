@@ -28,19 +28,19 @@ class SurahController extends AppBaseController
             $searchValue = $request->get('searchValue');
             if ($searchValue !== '') {
                 $entities = $this->repository->paginate($searchValue);
-                return view('Quran.Surah.index', compact('entities'))->render();
+                return view('Quran.surah.index', compact('entities'))->render();
             }
         }else{
             $entities = $this->repository->paginate(); 
         }
-        return view('Quran.Surah.index', compact('entities'));
+        return view('Quran.surah.index', compact('entities'));
     }
 
 
     public function create()
     {
         $dataToEdit = null;
-        return view('Quran.Surah.create', compact('dataToEdit'));
+        return view('Quran.surah.create', compact('dataToEdit'));
     }
 
 
@@ -54,14 +54,14 @@ class SurahController extends AppBaseController
     public function show(string $id)
     {
         $fetchedData = $this->repository->find($id);
-        return view('Quran.Surah.show', compact('fetchedData'));
+        return view('Quran.surah.show', compact('fetchedData'));
     }
 
 
     public function edit(string $id)
     {
         $dataToEdit = $this->repository->find($id);
-        return view('Quran.Surah.edit', compact('dataToEdit'));
+        return view('Quran.surah.edit', compact('dataToEdit'));
     }
 
 
@@ -76,7 +76,7 @@ class SurahController extends AppBaseController
     {
         $this->repository->destroy($id);
         $entities = $this->repository->paginate();
-        return view('Quran.Surah.index', compact('entities'))->with('succes', 'Le Surah a été supprimer avec succés.');
+        return view('Quran.surah.index', compact('entities'))->with('succes', 'Le Surah a été supprimer avec succés.');
     }
 
 

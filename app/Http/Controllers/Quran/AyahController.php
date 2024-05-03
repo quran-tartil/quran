@@ -28,19 +28,19 @@ class AyahController extends AppBaseController
             $searchValue = $request->get('searchValue');
             if ($searchValue !== '') {
                 $entities = $this->repository->paginate($searchValue);
-                return view('Quran.Ayah.index', compact('entities'))->render();
+                return view('Quran.ayah.index', compact('entities'))->render();
             }
         }else{
             $entities = $this->repository->paginate(); 
         }
-        return view('Quran.Ayah.index', compact('entities'));
+        return view('Quran.ayah.index', compact('entities'));
     }
 
 
     public function create()
     {
         $dataToEdit = null;
-        return view('Quran.Ayah.create', compact('dataToEdit'));
+        return view('Quran.ayah.create', compact('dataToEdit'));
     }
 
 
@@ -54,14 +54,14 @@ class AyahController extends AppBaseController
     public function show(string $id)
     {
         $fetchedData = $this->repository->find($id);
-        return view('Quran.Ayah.show', compact('fetchedData'));
+        return view('Quran.ayah.show', compact('fetchedData'));
     }
 
 
     public function edit(string $id)
     {
         $dataToEdit = $this->repository->find($id);
-        return view('Quran.Ayah.edit', compact('dataToEdit'));
+        return view('Quran.ayah.edit', compact('dataToEdit'));
     }
 
 
@@ -76,7 +76,7 @@ class AyahController extends AppBaseController
     {
         $this->repository->destroy($id);
         $entities = $this->repository->paginate();
-        return view('Quran.Ayah.index', compact('entities'))->with('succes', 'Le Ayah a été supprimer avec succés.');
+        return view('Quran.ayah.index', compact('entities'))->with('succes', 'Le Ayah a été supprimer avec succés.');
     }
 
 
