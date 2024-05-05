@@ -39,6 +39,21 @@
     </li>
 @endcan
 
+
+@can('index-noteAyatController')
+    <li class="nav-item">
+        <a href="{{ route('noteAyats.index') }}"
+            class="nav-link {{ Request::is('noteAyats*') && !Request::is('*tâches*') ? 'active' : '' }}">
+            <i class="nav-icon fas fa-table"></i>
+            <p>
+                {{ __('Quran/noteAyat/message.noteAyats') }}
+                
+            </p>
+        </a>
+    </li>
+@endcan
+
+
 @can('index-TopicCategoryController')
     <li class="nav-item">
         <a href="{{ route('topicCategories.index') }}"

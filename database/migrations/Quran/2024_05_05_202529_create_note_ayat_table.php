@@ -13,9 +13,16 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('note_ayat', function (Blueprint $table) {
+        Schema::create('note_ayats', function (Blueprint $table) {
             $table->id();
+            $table->text('note')->nullable();
             $table->timestamps();
+            $table->unsignedBigInteger('topic_id'); 
+            $table->unsignedBigInteger('ayah_id'); 
+
+            $table->foreign('topic_id')->references('id')->on('topics');
+            $table->foreign('ayah_id')->references('id')->on('ayahs');
+
         });
     }
 
