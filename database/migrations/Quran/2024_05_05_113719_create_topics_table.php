@@ -1,5 +1,7 @@
 <?php
 
+namespace App\Database\Migrations\Quran;
+
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -13,11 +15,13 @@ return new class extends Migration
     {
         Schema::create('topics', function (Blueprint $table) {
             $table->id();
-            $table->string('name')->unique();
-            $table->text('description')->nullable();
+            $table->text('note')->nullable();
             $table->timestamps();
-            $table->unsignedBigInteger('topic_category_id')->nullable(); 
-            $table->foreign('topic_category_id')->references('id')->on('topic_categories');
+            $table->unsignedBigInteger('topic_id'); 
+            $table->unsignedBigInteger('ayah_id'); 
+
+            $table->foreign('topic_id')->references('id')->on('topics');
+            $table->foreign('ayah_id')->references('id')->on('ayahs');
 
         });
     }
