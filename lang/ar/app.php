@@ -4,7 +4,7 @@ return [
     'add' => 'إضافة',
     'delete' => 'مسح',
     'edit' => 'تعديل',
-    'cancel' => 'إبغاء',
+    'cancel' => 'إلغاء',
     'recherche' => 'بحث',
     'export' => 'EXPORTER',
     'import' => 'IMPORTER',

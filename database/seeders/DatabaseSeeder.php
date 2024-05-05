@@ -26,9 +26,9 @@ use Database\Seeders\GestionProjets\{
 use Database\Seeders\Quran\{
     RootSeeder,
     SurahSeeder,
-    AyahSeeder
+    AyahSeeder,
+    TopicCategorySeeder
 };
-
 
 class DatabaseSeeder extends Seeder
 {

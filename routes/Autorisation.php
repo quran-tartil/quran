@@ -15,4 +15,4 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'Autorisations'], function (
 
 });
 
-Auth::routes();
+// Auth::routes();

@@ -38,3 +38,16 @@
         </a>
     </li>
 @endcan
+
+@can('index-TopicCategoryController')
+    <li class="nav-item">
+        <a href="{{ route('topicCategories.index') }}"
+            class="nav-link {{ Request::is('topicCategories*') && !Request::is('*tâches*') ? 'active' : '' }}">
+            <i class="nav-icon fas fa-table"></i>
+            <p>
+                {{ __('Quran/topicCategory/message.topicCategories') }}
+                
+            </p>
+        </a>
+    </li>
+@endcan

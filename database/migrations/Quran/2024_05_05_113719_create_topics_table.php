@@ -17,7 +17,7 @@ return new class extends Migration
             $table->text('description')->nullable();
             $table->timestamps();
             $table->unsignedBigInteger('topic_category_id')->nullable(); 
-            $table->foreign('topic_category_id')->references('id')->on('topicCategories');
+            $table->foreign('topic_category_id')->references('id')->on('topic_categories');
 
         });
     }
