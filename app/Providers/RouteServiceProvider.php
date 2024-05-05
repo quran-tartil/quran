@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\RateLimiter;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Storage;
 
 class RouteServiceProvider extends ServiceProvider
 {
@@ -37,8 +38,8 @@ class RouteServiceProvider extends ServiceProvider
      */
     protected function loadRoutes()
     {
+        // Load files and files in packages 
         $routeFiles = File::allFiles(base_path('routes'));
-
         foreach ($routeFiles as $file) {
             $this->loadRouteFile($file);
         }

@@ -2,6 +2,9 @@
 
 namespace Database\Seeders;
 
+use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\App;
+
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
 use Illuminate\Database\Seeder;
@@ -27,7 +30,8 @@ use Database\Seeders\Quran\{
     RootSeeder,
     SurahSeeder,
     AyahSeeder,
-    TopicCategorySeeder
+    TopicCategorySeeder,
+    TopicSeeder
 };
 
 class DatabaseSeeder extends Seeder

@@ -9,7 +9,8 @@ use Database\Seeders\Quran\{
     RootSeeder,
     SurahSeeder,
     AyahSeeder,
-    TopicCategorySeeder
+    TopicCategorySeeder,
+    TopicSeeder
 };
 
 
@@ -27,7 +28,8 @@ class QuranSeeder extends Seeder
             RootSeeder::class,
             SurahSeeder::class,
             AyahSeeder::class,
-            TopicCategorySeeder::class
+            TopicCategorySeeder::class,
+            TopicSeeder::class
         ];
     }
 }

@@ -51,3 +51,16 @@
         </a>
     </li>
 @endcan
+
+@can('index-TopicController')
+    <li class="nav-item">
+        <a href="{{ route('topics.index') }}"
+            class="nav-link {{ Request::is('topics*') && !Request::is('*tâches*') ? 'active' : '' }}">
+            <i class="nav-icon fas fa-table"></i>
+            <p>
+                {{ __('Quran/topic/message.topics') }}
+                
+            </p>
+        </a>
+    </li>
+@endcan
