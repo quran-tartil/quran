@@ -1,0 +1,10 @@
+{
+    "files.exclude": {
+        "ayahs_all.csv": true,
+        "ayahs_all1.csv": true,
+        "roots.csv": true,
+        "surahs.csv": true,
+        "topics.csv": true,
+        ".vscode": true
+    }
+}

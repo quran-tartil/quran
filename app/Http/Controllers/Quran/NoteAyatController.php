@@ -12,6 +12,8 @@ use Carbon\Carbon;
 use App\Exports\Quran\NoteAyatExport;
 use App\Models\Quran\Ayah;
 use App\Models\Quran\Topic;
+use App\Repositories\Quran\AyahRepository;
+use App\Repositories\Quran\TopicRepository;
 use Maatwebsite\Excel\Facades\Excel;
 
 class NoteAyatController extends AppBaseController
@@ -38,15 +40,13 @@ class NoteAyatController extends AppBaseController
         return view('Quran.noteAyat.index', compact('entities'));
     }
 
-
     public function create()
-    {
-        $topics = Topic::all();
-        $ayahs  = Ayah::all();
-        $dataToEdit = null;
-        return view('Quran.noteAyat.create', compact('dataToEdit','topics','ayahs'));
+    {   
+        $topics = (new TopicRepository())->all();
+        $ayahs  = (new AyahRepository)->all();
+        $model = null;
+        return view('Quran.noteAyat.create', compact( 'model','topics','ayahs'));
     }
-
 
     public function store(NoteAyatRequest $request)
     {
@@ -66,8 +66,8 @@ class NoteAyatController extends AppBaseController
     {
         $topics = Topic::all();
         $ayahs  = Ayah::all();
-        $dataToEdit = $this->repository->find($id);
-        return view('Quran.noteAyat.edit', compact('dataToEdit','topics','ayahs'));
+        $model = $this->repository->find($id);
+        return view('Quran.noteAyat.edit', compact('model','topics','ayahs'));
     }
 
 

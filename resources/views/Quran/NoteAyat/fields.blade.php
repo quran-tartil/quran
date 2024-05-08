@@ -1,9 +1,10 @@
-<form action="{{ $dataToEdit ? route('noteAyats.update', $dataToEdit->id) : route('noteAyats.store') }}" method="POST">
+<form action="{{ $model ? route('noteAyats.update', $model->id) : route('noteAyats.store') }}" method="POST">
+    
     @csrf
-  
-    @if ($dataToEdit)
+    @if ($model)
         @method('PUT')
     @endif
+
     <div class="card-body">
 
            <div class="form-group">
@@ -12,7 +13,7 @@
                 </label>
              
                 <select name="topic_id" class="form-control" id="topicInput">
-                    @if (isset($dataToEdit))
+                    @if (isset($model))
                         <option value="{{ $noteAyat->topic->id }}">{{ $noteAyat->topic->nom }}</option>
                     @else
                         <option value="">{{ __('Quran/noteAyat/message.choix') }}</option>
@@ -55,7 +56,7 @@
         <div class="form-group">
             <label for="inputnote">{{ __('app.note') }}</label>
             <textarea name="note" id="editor" class="form-control" rows="7" placeholder="Entrez la note">
-                {{ $dataToEdit ? $dataToEdit->note : old('note') }}
+                {{ $model ? $model->note : old('note') }}
             </textarea>
             @error('note')
                 <div class="text-danger">{{ $message }}</div>
@@ -67,6 +68,6 @@
         <a href="{{ route('noteAyats.index') }}"
             class="btn btn-default">{{ __('app.cancel') }}</a>
         <button type="submit"
-            class="btn btn-info">{{ $dataToEdit ? __('app.edit') : __('app.add') }}</button>
+            class="btn btn-info">{{ $model ? __('app.edit') : __('app.add') }}</button>
     </div>
 </form>

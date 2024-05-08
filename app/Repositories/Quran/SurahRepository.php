@@ -12,9 +12,9 @@ class SurahRepository extends BaseRepository
         'name'
     ];
 
-    public function __construct(Surah $Surah)
+    public function __construct()
     {
-        $this->model = $Surah;
+        $this->model = new Surah;
     }
     public function getFieldsSearchable(): array
     {

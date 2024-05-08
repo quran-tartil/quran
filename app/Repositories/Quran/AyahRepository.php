@@ -17,9 +17,9 @@ class AyahRepository extends BaseRepository
         'quran_uthmani' ,
     ];
 
-    public function __construct(Ayah $Ayah)
+    public function __construct()
     {
-        $this->model = $Ayah;
+        $this->model = new Ayah;
     }
     public function getFieldsSearchable(): array
     {

@@ -24,7 +24,6 @@
                                 {{ __('app.add') }} {{ __('Quran/noteAyat/message.noteAyat') }}
                             </h3>
                         </div>
-                        <!-- Obtenir le formulaire -->
                         @include('Quran.noteAyat.fields')
                     </div>
                 </div>

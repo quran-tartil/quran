@@ -1,0 +1,10 @@
+{
+    "files.exclude": {
+        "AyahSeeder.php": false,
+        "NoteAyatSeeder.php": false,
+        "RootSeeder.php": false,
+        "SurahSeeder.php": false,
+        "TopicSeeder.php": false,
+        ".vscode": false
+    }
+}

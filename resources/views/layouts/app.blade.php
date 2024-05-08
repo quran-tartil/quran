@@ -1,75 +1,88 @@
-<x-laravel-ui-adminlte::adminlte-layout>
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    
+    <title>{{ config('app.name') }}</title>
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
-    <!-- Include CKEditor 5 CDN -->
-    <script src="https://cdn.ckeditor.com/ckeditor5/36.0.1/classic/ckeditor.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css"
+          integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog=="
+          crossorigin="anonymous"/>
+    @vite('resources/sass/app.scss')
+    @stack('third_party_stylesheets')
+    @stack('page_css')
+</head>
+<body class="hold-transition sidebar-mini layout-fixed">
+    <div class="wrapper">
+        <!-- Main Header -->
+        <nav class="main-header navbar navbar-expand navbar-white navbar-light">
+            <!-- Left navbar links -->
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i
+                            class="fas fa-bars"></i></a>
+                </li>
+            </ul>
 
-    <body class="hold-transition sidebar-mini layout-fixed">
-        <div class="wrapper">
-            <!-- Main Header -->
-            <nav class="main-header navbar navbar-expand navbar-white navbar-light">
-                <!-- Left navbar links -->
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i
-                                class="fas fa-bars"></i></a>
-                    </li>
-                </ul>
-
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item dropdown user-menu">
-                        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">
-                            <img src="{{ asset('images/man.png') }}" class="user-image img-circle elevation-2"
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item dropdown user-menu">
+                    <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">
+                        <img src="{{ asset('images/man.png') }}" class="user-image img-circle elevation-2"
+                            alt="User Image">
+                        <span class="d-none d-md-inline">{{ Auth::user()->prenom . ' ' . Auth::user()->nom }}</span>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+                        <!-- User image -->
+                        <li class="user-header bg-primary">
+                            <img src="{{ asset('images/man.png') }}" class="img-circle elevation-2"
                                 alt="User Image">
-                            <span class="d-none d-md-inline">{{ Auth::user()->prenom . ' ' . Auth::user()->nom }}</span>
-                        </a>
-                        <ul class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-                            <!-- User image -->
-                            <li class="user-header bg-primary">
-                                <img src="{{ asset('images/man.png') }}" class="img-circle elevation-2"
-                                    alt="User Image">
-                                <p>
-                                    {{ Auth::user()->nom . ' ' . Auth::user()->prenom }}
-                                    <small>Member since {{ Auth::user()->created_at->format('M. Y') }}</small>
-                                </p>
-                            </li>
-                            <!-- Menu Footer-->
-                            <li class="user-footer">
-                                <a href="#" class="btn btn-default btn-flat">Profile</a>
-                                <a href="#" class="btn btn-default btn-flat float-right"
-                                    onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                                    Sign out
-                                </a>
-                                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                    @csrf
-                                </form>
-                            </li>
-                        </ul>
-                    </li>
-                </ul>
-            </nav>
+                            <p>
+                                {{ Auth::user()->nom . ' ' . Auth::user()->prenom }}
+                                <small>Member since {{ Auth::user()->created_at->format('M. Y') }}</small>
+                            </p>
+                        </li>
+                        <!-- Menu Footer-->
+                        <li class="user-footer">
+                            <a href="#" class="btn btn-default btn-flat">Profile</a>
+                            <a href="#" class="btn btn-default btn-flat float-right"
+                                onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                Sign out
+                            </a>
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                @csrf
+                            </form>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
 
-            <!-- Left side column. contains the logo and sidebar -->
-            @include('layouts.sidebar')
+        <!-- Left side column. contains the logo and sidebar -->
+        @include('layouts.sidebar')
 
-            <!-- Content Wrapper. Contains page content -->
-            <div class="content-wrapper">
-                @yield('content')
-            </div>
-
-            <!-- Main Footer -->
-            <footer class="main-footer">
-                <div class="float-right d-none d-sm-block">
-                    <b>Version</b> 3.1.0
-                </div>
-                <strong>Copyright &copy; 2014-2023 <a href="https://adminlte.io">AdminLTE.io</a>.</strong> All rights
-                reserved.
-            </footer>
+        <!-- Content Wrapper. Contains page content -->
+        <div class="content-wrapper">
+            @yield('content')
         </div>
-    </body>
+
+        <!-- Main Footer -->
+        <footer class="main-footer">
+            <div class="float-right d-none d-sm-block">
+                <b>Version</b> 0.0.1
+            </div>
+        </footer>
+    </div>
 
 
-<!-- TODO : à organiser avec layout -->
+    
+</body>
+
+@vite('resources/js/app.js')
+@stack('third_party_scripts')
+@stack('page_scripts')
+
 <!-- 
 
     Ce script est utiliser pour la recherche dans la page index
@@ -135,6 +148,4 @@
 </script>
 
 
-
-
-</x-laravel-ui-adminlte::adminlte-layout>
+</html>

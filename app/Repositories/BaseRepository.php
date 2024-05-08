@@ -4,6 +4,7 @@ namespace App\Repositories;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Collection;
 use App\Repositories\Contracts\RepositoryInterface;
 use Illuminate\Contracts\Pagination\LengthAwarePaginator;
 
@@ -84,7 +85,6 @@ abstract class BaseRepository implements RepositoryInterface
     public function all(array $search = [], int $skip = null, int $limit = null, array $columns = ['*']): Collection
     {
         $query = $this->allQuery($search, $skip, $limit);
-
         return $query->get($columns);
     }
 

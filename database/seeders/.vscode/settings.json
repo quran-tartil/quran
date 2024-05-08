@@ -1,0 +1,15 @@
+{
+    "files.exclude": {
+        "Autorisation": true,
+        "GestionProjets": true,
+        "Parameters": true,
+        "AutorisationSeeder.php": true,
+        "GestionProjetsSeeder.php": true,
+        "ParametersSeeder.php": true,
+        "Quran\\AyahSeeder.php": true,
+        "Quran\\NoteAyatSeeder.php": true,
+        "Quran\\RootSeeder.php": true,
+        "Quran\\SurahSeeder.php": true,
+        "Quran\\TopicSeeder.php": true
+    }
+}

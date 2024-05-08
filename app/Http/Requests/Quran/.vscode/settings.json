@@ -1,0 +1,9 @@
+{
+    "files.exclude": {
+        "AyahRequest.php": true,
+        "NoteAyatRequest.php": true,
+        "SurahRequest.php": true,
+        "TopicRequest.php": true,
+        ".vscode": true
+    }
+}

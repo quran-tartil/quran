@@ -12,9 +12,9 @@ class NoteAyatRepository extends BaseRepository
         'name'
     ];
 
-    public function __construct(NoteAyat $NoteAyat)
+    public function __construct()
     {
-        $this->model = $NoteAyat;
+        $this->model = new NoteAyat();
     }
     public function getFieldsSearchable(): array
     {

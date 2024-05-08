@@ -12,9 +12,9 @@ class TopicCategoryRepository extends BaseRepository
         'name'
     ];
 
-    public function __construct(TopicCategory $TopicCategory)
+    public function __construct()
     {
-        $this->model = $TopicCategory;
+        $this->model = new TopicCategory;
     }
     public function getFieldsSearchable(): array
     {
