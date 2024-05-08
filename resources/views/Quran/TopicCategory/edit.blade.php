@@ -15,7 +15,6 @@
                                 {{ __('Quran/topicCategory/message.edit_topicCategory') }}
                             </h3>
                         </div>
-                        <!-- Obtenir le formulaire -->
                         @include('Quran.topicCategory.fields')
                     </div>
                 </div>

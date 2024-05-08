@@ -28,7 +28,12 @@ class Ayah extends Model
         'ar_muyassar'
     ];
 
-    public function root()
+    // TODO: Question : Override the default __toString() method
+    public function __toString() {
+        return $this->quran_uthmani_min ." : [".  $this->Surah->name . "," . $this->number_in_surah  . "]";
+    }
+
+    public function Surah()
     {
         return $this->belongsTo(Surah::class,'surah_id');
     }

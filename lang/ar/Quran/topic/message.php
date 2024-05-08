@@ -5,8 +5,8 @@
 // $commonTranslations = include LANG_DIR . 'common_fr.php';
 
 return [
-    'topics'=> 'موضوع',
-    'topic'=> 'المواضيع',
+    'topics'=> 'المواضيع',
+    'topic'=>  'موضوع',
     'name' => 'اسم',
     'description' => 'وصف'
 ]  ;

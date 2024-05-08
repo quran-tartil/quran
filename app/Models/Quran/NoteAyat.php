@@ -16,6 +16,8 @@ class NoteAyat extends Model
         'ayah_id'
     ];
 
+    
+
    
     public function ayah()
     {

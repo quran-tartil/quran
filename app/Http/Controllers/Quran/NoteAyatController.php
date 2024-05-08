@@ -44,8 +44,8 @@ class NoteAyatController extends AppBaseController
     {   
         $topics = (new TopicRepository())->all();
         $ayahs  = (new AyahRepository)->all();
-        $model = null;
-        return view('Quran.noteAyat.create', compact( 'model','topics','ayahs'));
+        $noteAyat = null;
+        return view('Quran.noteAyat.create', compact( 'noteAyat','topics','ayahs'));
     }
 
     public function store(NoteAyatRequest $request)
@@ -55,19 +55,13 @@ class NoteAyatController extends AppBaseController
             return redirect()->route('noteAyats.index')->with('success', 'Le NoteAyat a été ajouté avec succès.');
     }
 
-    public function show(string $id)
-    {
-        $fetchedData = $this->repository->find($id);
-        return view('Quran.noteAyat.show', compact('fetchedData'));
-    }
-
-
+ 
     public function edit(string $id)
     {
         $topics = Topic::all();
         $ayahs  = Ayah::all();
-        $model = $this->repository->find($id);
-        return view('Quran.noteAyat.edit', compact('model','topics','ayahs'));
+        $noteAyat = $this->repository->find($id);
+        return view('Quran.noteAyat.edit', compact('noteAyat','topics','ayahs'));
     }
 
 
@@ -77,6 +71,12 @@ class NoteAyatController extends AppBaseController
         $this->repository->update($id, $validatedData);
         // noteAyats.index
         return redirect()->route('noteAyats.index', $id)->with('success', 'Le NoteAyat a été modifier avec succès.');
+    }
+
+    public function show(string $id)
+    {
+        $fetchedData = $this->repository->find($id);
+        return view('Quran.noteAyat.show', compact('fetchedData'));
     }
 
     public function destroy(string $id)
@@ -93,7 +93,6 @@ class NoteAyatController extends AppBaseController
 
         return Excel::download(new NoteAyatExport($noteAyats), 'NoteAyat_export.xlsx');
     }
-
 
     public function import(Request $request)
     {

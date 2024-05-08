@@ -24,7 +24,6 @@
                                 {{ __('app.add') }} {{ __('Quran/topicCategory/message.topicCategory') }}
                             </h3>
                         </div>
-                        <!-- Obtenir le formulaire -->
                         @include('Quran.topicCategory.fields')
                     </div>
                 </div>

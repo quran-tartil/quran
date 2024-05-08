@@ -1,8 +1,5 @@
 <?php
 
-// Define constant for the directory path
-define('LANG_DIR', __DIR__ . '/../../');
-$commonTranslations = include LANG_DIR . 'common_fr.php';
 
 return [
     'projects' => 'Liste des projets',
@@ -22,6 +19,4 @@ return [
     'newProject' => 'Nouveau Projet',
     'addProject' => 'Ajouter un Projet',
     'projetAdded' => 'Le projet a été ajouté avec succès..',
-
-
-] + $commonTranslations;
+];

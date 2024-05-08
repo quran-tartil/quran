@@ -14,6 +14,12 @@
                             </h3>
                         </div>
                         @include('Quran.noteAyat.fields')
+                        <div class="card-footer">
+                            <a href="{{ route('noteAyats.index') }}"
+                            class="btn btn-default">{{ __('app.cancel') }}</a>
+                            <button type="submit" onclick="document.getElementById('noteAyat_form').submit();"
+                            class="btn btn-info">{{ $noteAyat ? __('app.edit') : __('app.add') }}</button>
+                        </div>
                     </div>
                 </div>
             </div>

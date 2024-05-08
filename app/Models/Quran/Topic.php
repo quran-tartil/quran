@@ -15,6 +15,10 @@ class Topic extends Model
         'description'
     ];
 
+    public function __toString() {
+        return $this->name;
+    }
+
     public function ayahs(){
         return $this->hasMany(Ayah::class,'topic_id');
     }
