@@ -1,4 +1,4 @@
-@extends('layouts.adminlte')
+@extends('layouts.public')
 
 @section('subtitle', 'Welcome')
 @section('content_header_title', 'Home')
