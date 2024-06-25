@@ -25,6 +25,12 @@ abstract class BaseRepository implements RepositoryInterface
     // }
     public function paginate($search = [], $perPage = 0, array $columns = ['*']): LengthAwarePaginator
     {
+        if(!is_array($search)){
+            if(strpos($search,",") !== false){
+                $search = explode(",",$search);
+            }
+        }
+
         if( $perPage == 0) { $perPage = $this->paginationLimit;}
 
         $query = $this->allQuery($search);
@@ -37,15 +43,14 @@ abstract class BaseRepository implements RepositoryInterface
 
     public function allQuery($search = [], int $skip = null, int $limit = null): Builder
     {
+
         $query = $this->model->newQuery();
 
         if (is_array($search)) {
             if (count($search)) {
-                foreach ($search as $key => $value) {
-                    if (in_array($key, $this->getFieldsSearchable())) {
-                        if (!is_null($value)) {
-                            $query->where($key, $value);
-                        }
+                foreach ($search as $search_word) {
+                    foreach ($this->getFieldsSearchable() as $searchKey) {
+                        $query->orWhere($searchKey, 'LIKE', '%' . $search_word . '%');
                     }
                 }
             }

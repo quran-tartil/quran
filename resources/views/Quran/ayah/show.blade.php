@@ -50,7 +50,7 @@
                                     @foreach ($word_details as $word_detail)
                                     <tr>
                                         <td>{{$word_detail->word_label}}</td>
-                                        <td> {{route("routs.show",1)}}  {{$word_detail->root_label}}</td>
+                                        <td> <a href="{{route("ayahs.index","searchValue=")}}{{$word_detail->root_label}}">{{$word_detail->root_label}}</a>   </td>
                                     </tr>
                                     @endforeach
                                 </table>

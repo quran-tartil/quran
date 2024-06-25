@@ -24,7 +24,7 @@
                         <div class="card-header col-md-12">
                             <div class=" p-0">
                                 <div class="input-group input-group-sm float-sm-right col-md-3 p-0">
-                                    <input type="text" name="table_search" id="table_search"
+                                    <input type="text" name="table_search" id="table_search" value="{{$searchValue}}"
                                         class="form-control float-right" placeholder="{{ __('app.recherche') }}">
                                     <div class="input-group-append">
                                         <button type="submit" class="btn btn-default">

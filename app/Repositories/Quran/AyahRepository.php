@@ -38,14 +38,27 @@ class AyahRepository extends BaseRepository
 
         foreach($word_labels as $word_label ) {
 
+            $word_detail = (object)[];
+            $word_detail->word_label =  $word_label;
+            $word_detail->root_label = "";
+            $word_detail->words_labels_from_root = "";
+
+
             $root = null;
             $word = Word::where("code", $word_label)->first();
             if($word != null) $root = Root::find($word->root_id);
 
-            $word_detail = (object)[];
-            $word_detail->word_label =  $word_label;
-            $word_detail->root_label = "";
-            if($root != null) $word_detail->root_label = $root->root;
+           
+            if($root != null) {
+                // root_label
+                $word_detail->root_label = $root->root;
+
+                // words_labels_from_root
+                $words = Word::where("root_id",$root->id);
+            }
+
+            
+            
 
             array_push($word_details,$word_detail);
            

@@ -21,19 +21,30 @@ class AyahController extends AppBaseController
         $this->repository = $AyahRepository;
     }
 
+    /**
+     * searchValue peut contient plusieurs valeur
+     */
     public function index(Request $request)
     {
         $entities = null;
+     
+        $searchValue = $request->get('searchValue');
+
         if ($request->ajax()) {
-            $searchValue = $request->get('searchValue');
             if ($searchValue !== '') {
                 $entities = $this->repository->paginate($searchValue);
-                return view('Quran.ayah.index', compact('entities'))->render();
+            }else{
+                $entities = $this->repository->paginate();
             }
+            return view('Quran.ayah.index', compact('entities','searchValue'))->render();
         }else{
-            $entities = $this->repository->paginate(); 
+            if(isset($searchValue)){
+                $entities = $this->repository->paginate($searchValue); 
+            }else{
+                $entities = $this->repository->paginate(); 
+            }
         }
-        return view('Quran.ayah.index', compact('entities'));
+        return view('Quran.ayah.index', compact('entities','searchValue'));
     }
 
 
