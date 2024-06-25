@@ -1,19 +1,55 @@
 # Installation des packages
 
-## Laravel Spatie
+<!-- TODO : à documenter dans lab-laravel-permission -->
+
+## laravel-permission  - lab-laravel-permission
+
+0. Midification de model : User
+
+````php
+use Illuminate\Foundation\Auth\User as Authenticatable;
+use Spatie\Permission\Traits\HasRoles;
+
+class User extends Authenticatable
+{
+    use HasRoles;
+
+    // ...
+}
+````
+
+- [Prerequisites](https://spatie.be/docs/laravel-permission/v6/prerequisites)
+
+1. You can install the package via composer:
 
 ```bash
 composer require spatie/laravel-permission
 ```
 
-Ajoutez le fournisseur de services dans votre fichier `config/app.php` dans `'providers'`:
+2. Ajoutez le fournisseur de services dans votre fichier `bootstrap/providers.php`
 
-```bash
-Spatie\Permission\PermissionServiceProvider::class,
+```php
+return [
+    App\Providers\AppServiceProvider::class,
+    Spatie\Permission\PermissionServiceProvider::class,
+];
+
 ```
 
-[LARAVEL-PERMISSION - Installation in Laravel](https://spatie.be/docs/laravel-permission/v6/installation-laravel)
+3. You should publish the migration and the config/permission.php config file with:
 
+````bash
+php artisan vendor:publish --provider="Spatie\Permission\PermissionServiceProvider"
+````
+
+
+
+**Questions pour lab :**
+
+- Modifer le fichier permission.php - modifier le nom de la table Role par RoleSolicode
+
+
+[LARAVEL-PERMISSION - Installation in Laravel](https://spatie.be/docs/laravel-permission/v6/installation-laravel)
 
 --------------
 
