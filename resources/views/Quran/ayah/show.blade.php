@@ -1,7 +1,7 @@
 
 @extends('layouts.app')
 
-@section('content')
+@section('content_body')
     <div class="content-header">
         <div class="container-fluid">
             <div class="row mb-2">
@@ -50,7 +50,7 @@
                                     @foreach ($word_details as $word_detail)
                                     <tr>
                                         <td>{{$word_detail->word_label}}</td>
-                                        <td>{{$word_detail->root_label}}</td>
+                                        <td> {{route("routs.show",1)}}  {{$word_detail->root_label}}</td>
                                     </tr>
                                     @endforeach
                                 </table>
