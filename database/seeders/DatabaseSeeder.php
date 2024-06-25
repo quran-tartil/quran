@@ -16,11 +16,16 @@ use Database\Seeders\Quran\{
     TopicSeeder
 };
 
+use Database\Seeders\Application\{
+    PageSeeder
+};
+
 class DatabaseSeeder extends Seeder
 {
     public function run(): void
     {
         $this->call(AutorisationSeeder::class);
         $this->call(QuranSeeder::class);
+        $this->call(ApplicationSeeder::class);
     }
 }

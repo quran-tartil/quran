@@ -1,0 +1,3 @@
+label,icon,route,permission
+Quran/surah/message.surahs,fas fa-fw fa-table,surahs.index,index-SurahController
+Quran/ayah/message.ayahs,fas fa-fw fa-table,ayahs.index,index-AyahController

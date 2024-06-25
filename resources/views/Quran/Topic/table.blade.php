@@ -21,7 +21,7 @@
                         @endcan
                         @can('edit-TopicController')
                             <a href="{{ route('topics.edit', $entity) }}" class="btn btn-sm btn-default">
-                                <i class="fa-solid fa-pen-to-square"></i>
+                                <i class="fas fa-pencil-alt"></i>
                             </a>
                         @endcan
                         @can('destroy-TopicController')
@@ -31,7 +31,7 @@
                                 @method('DELETE')
                                 <button type="submit" class="btn btn-sm btn-danger"
                                     onclick="return confirm('Êtes-vous sûr de vouloir supprimer ce topic ?')">
-                                    <i class="fa-solid fa-trash"></i>
+                                    <i class="fas fa-solid fa-trash"></i>
                                 </button>
                             </form>
                         @endcan

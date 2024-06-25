@@ -22,7 +22,7 @@
                         @endcan
                         @can('edit-NoteAyatController')
                             <a href="{{ route('noteAyats.edit', $entity) }}" class="btn btn-sm btn-default">
-                                <i class="fa-solid fa-pen-to-square"></i>
+                                <i class="fas fa-pencil-alt"></i>
                             </a>
                         @endcan
                         @can('destroy-NoteAyatController')
@@ -32,7 +32,7 @@
                                 @method('DELETE')
                                 <button type="submit" class="btn btn-sm btn-danger"
                                     onclick="return confirm('Êtes-vous sûr de vouloir supprimer ce noteAyat ?')">
-                                    <i class="fa-solid fa-trash"></i>
+                                    <i class="fas fa-solid fa-trash"></i>
                                 </button>
                             </form>
                         @endcan

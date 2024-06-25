@@ -2,9 +2,11 @@
 
 namespace App\Providers;
 
+use App\Models\Application\Page;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Schema;
+use JeroenNoten\LaravelAdminLte\Events\BuildingMenu;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -51,6 +53,21 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        //
+        // TODO : à migrate dans un provider nommé : Menu
+
+        $this->app['events']->listen(BuildingMenu::class, function (BuildingMenu $event) {
+
+            $event->menu->add(trans('menu.pages')); // Static menu item
+
+
+            $items = Page::all()->map(function ($page) use ($event) {
+                $event->menu->add([
+                    'text' => __($page->label) ,
+                    'url' => route($page->route),
+                    'icon' => $page->icon
+                ]);
+            });
+        });
+
     }
 }
