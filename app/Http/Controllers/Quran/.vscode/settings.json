@@ -1,9 +1,0 @@
-{
-    "files.exclude": {
-        "AyahController.php": true,
-        "NoteAyatController.php": true,
-        "SurahController.php": true,
-        "TopicController.php": true,
-        ".vscode": true
-    }
-}
