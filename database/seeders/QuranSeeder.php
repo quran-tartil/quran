@@ -7,6 +7,7 @@ use Symfony\Component\Uid\NilUuid;
 
 use Database\Seeders\Quran\{
     RootSeeder,
+    WordSeeder,
     SurahSeeder,
     AyahSeeder,
     TopicCategorySeeder,
@@ -26,6 +27,7 @@ class QuranSeeder extends Seeder
     {
         return [
             RootSeeder::class,
+            WordSeeder::class,
             SurahSeeder::class,
             AyahSeeder::class,
             TopicCategorySeeder::class,

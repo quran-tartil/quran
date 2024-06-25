@@ -1,6 +1,7 @@
 <?php
 
 return [
+    'tartil_quran' => 'ترتيل',
     'add' => 'إضافة',
     'delete' => 'مسح',
     'edit' => 'تعديل',

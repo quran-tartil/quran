@@ -3,6 +3,8 @@
 namespace App\Providers;
 
 use App\Models\Application\Page;
+use App\Models\User;
+use Illuminate\Support\Facades\Gate;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Schema;
@@ -53,12 +55,18 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
+
+        // Autorisation pour Admin
+        Gate::before(function ($user, $ability) {
+            return $user->hasRole(User::ADMIN) ? true : null;
+        });
+
+
         // TODO : à migrate dans un provider nommé : Menu
 
         $this->app['events']->listen(BuildingMenu::class, function (BuildingMenu $event) {
 
-            $event->menu->add(trans('menu.pages')); // Static menu item
-
+       
 
             $items = Page::all()->map(function ($page) use ($event) {
                 $event->menu->add([
@@ -68,6 +76,10 @@ class AppServiceProvider extends ServiceProvider
                 ]);
             });
         });
+
+
+
+      
 
     }
 }

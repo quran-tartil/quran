@@ -1,16 +1,18 @@
+
 @extends('layouts.app')
+
 @section('content')
     <div class="content-header">
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>{{ __('Quran/ayah/message.detail') }}</h1>
+                    <h1>{{ __('Quran/ayah/message.ayah') }}</h1>
                 </div>
-                @can('edit-ProjetController')
+                @can('edit-AyahController')
                     <div class="col-sm-6">
-                        <a href="{{ route('projets.edit', $fetchedData->id) }}" class="btn btn-default float-right">
+                        <a href="{{ route('ayahs.edit', $fetchedData->id) }}" class="btn btn-default float-right">
                             <i class="far fa-edit"></i>
-                            {{ __('Quran/ayah/message.edit') }}
+                            {{ __('edit') }}
                         </a>
                     </div>
                 @endcan
@@ -24,28 +26,35 @@
                     <div class="card">
                         <div class="card-body">
                             <div class="col-sm-12">
-                                <label for="nom">{{ __('GestionProjets/ayah/message.name') }}:</label>
-                                <p>{{ $fetchedData->nom }}</p>
+                                <label for="nom">{{ __('Quran/ayah/message.quran_uthmani_min') }}:</label>
+                                <p>{{ $fetchedData->quran_uthmani_min }}</p>
                             </div>
 
                             <!-- Description Field -->
                             <div class="col-sm-12">
-                                <label for="description">{{ __('GestionProjets/ayah/message.description') }}:</label>
-                                @if ($fetchedData->description)
+                                <label for="description">{{ __('Quran/ayah/message.ar_muyassar') }}:</label>
+                                @if ($fetchedData->ar_muyassar)
                                     <p>
-                                        {!! $fetchedData->description !!}
+                                        {!! $fetchedData->ar_muyassar !!}
                                     </p>
                                 @else
                                     <p class="text-secondary">Aucune information disponible</p>
                                 @endif
                             </div>
-                            <!-- Description Field -->
                             <div class="col-sm-12">
-                                <label for="description">{{ __('GestionProjets/ayah/message.date') }}:</label>
-                                <p>{{ __('GestionProjets/ayah/message.startDate') }}: {{ $fetchedData->date_debut }}</p>
-                                <p>{{ __('GestionProjets/ayah/message.endDate') }}: {{ $fetchedData->date_de_fin }}</p>
+                                <table class="table table-striped table-bordered">
+                                    <tr>
+                                        <td>كلمة</td>
+                                        <td>جذر الكلمة</td>
+                                    </tr>
+                                    @foreach ($word_details as $word_detail)
+                                    <tr>
+                                        <td>{{$word_detail->word_label}}</td>
+                                        <td>{{$word_detail->root_label}}</td>
+                                    </tr>
+                                    @endforeach
+                                </table>
                             </div>
-
                         </div>
                     </div>
                 </div>

@@ -14,18 +14,18 @@ return new class extends Migration
     {
         Schema::create('words', function (Blueprint $table) {
             $table->id();
-            $table->integer('number');
+            $table->integer('number')->nullable();
             $table->integer('number_occurrences');
             $table->string('code')->unique();
-            $table->text('word_simple');
-            $table->text('word_simple_clean');
-            $table->text('word_simple_enhanced');
-            $table->text('word_simple_min');
-            $table->text('word_uthmani_min');
-            $table->text('word_uthmani');
-            $table->text('description');
+            $table->text('word_simple')->nullable();
+            $table->text('word_simple_clean')->nullable();
+            $table->text('word_simple_enhanced')->nullable();
+            $table->text('word_simple_min')->nullable();
+            $table->text('word_uthmani_min')->nullable();
+            $table->text('word_uthmani')->nullable();
+            $table->text('description')->nullable();
            
-            $table->unsignedBigInteger('root_id'); 
+            $table->unsignedBigInteger('root_id')->nullable(); 
             $table->foreign('root_id')->references('id')->on('roots');
 
             $table->timestamps();

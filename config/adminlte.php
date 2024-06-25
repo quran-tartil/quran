@@ -254,46 +254,7 @@ return [
         [
             'type' => 'fullscreen-widget',
             'topnav_right' => true,
-        ],
-
-        // Sidebar items:
-        [
-            'text' => 'blog',
-            'url' => 'admin/blog',
-            'can' => 'manage-blog',
-        ],
-       
-        ['header' => 'account_settings'],
-        [
-            'text' => 'profile',
-            'url' => 'admin/settings',
-            'icon' => 'fas fa-fw fa-user',
-        ],
-        [
-            'text' => 'change_password',
-            'url' => 'admin/settings',
-            'icon' => 'fas fa-fw fa-lock',
-        ],
-        [
-            'text' => 'Gestions',
-            'icon' => 'fas fa-fw fa-share',
-            'submenu' => [
-                [
-                    'text' => 'Projets',
-                    'url' => '#',
-                ],
-                [
-                    'text' => 'Tâches',
-                    'url' => '#',
-                    'submenu' => [
-                        [
-                            'text' => 'Gestion des tâches',
-                            'url' => '#',
-                        ]
-                    ],
-                ]
-            ],
-        ],
+        ]
     ],
 
     /*

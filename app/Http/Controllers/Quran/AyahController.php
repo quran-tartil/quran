@@ -53,8 +53,10 @@ class AyahController extends AppBaseController
 
     public function show(string $id)
     {
+
         $fetchedData = $this->repository->find($id);
-        return view('Quran.ayah.show', compact('fetchedData'));
+        $word_details = $this->repository->getWordsAndRoot($id);
+        return view('Quran.ayah.show', compact('fetchedData','word_details'));
     }
 
 

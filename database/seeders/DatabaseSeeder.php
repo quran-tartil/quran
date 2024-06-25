@@ -10,11 +10,13 @@ use Database\Seeders\Autorisation\{
 
 use Database\Seeders\Quran\{
     RootSeeder,
+    WordSeeder,
     SurahSeeder,
     AyahSeeder,
     TopicCategorySeeder,
     TopicSeeder
 };
+
 
 use Database\Seeders\Application\{
     PageSeeder
